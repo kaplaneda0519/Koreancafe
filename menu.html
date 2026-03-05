@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Koreancafe | Menü</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="still.css">
+    
+    <style>
+        /* Sayfa Genel Arka Planı */
+        body {
+            background-color: #fdf8f2; /* Ana sayfadaki Hero tonuna yakın yumuşak bir renk */
+        }
+        .header-bg {
+            background-image: url('arkaplanchange.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .logo-img {
+            width: 80px; height: 80px;
+            border-radius: 50%; object-fit: cover;
+        }
+        .card {
+            transition: transform 0.3s; border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card-img-top { height: 200px; object-fit: cover; }
+        .menu-section-title {
+            border-left: 5px solid #ded0bd; padding-left: 15px;
+            margin: 40px 0 25px 0; font-weight: bold;
+            color: #5a4a3a;
+        }
+        #sepetAdet {
+            font-size: 10px;
+            padding: 3px 6px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-bg border-bottom shadow-sm">
+    <div class="container py-3">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <img src="images/kafelogo.png" alt="Logo" class="logo-img shadow">
+            </a>
+            <div class="ms-2 d-flex">
+                    <a href="index.html" title="Türkçe">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon">
+                    </a>
+                    <a href="koreindex.html" title="Korece">
+                        <img src="https://flagcdn.com/w40/kr.png" alt="Korece" class="flag-icon">
+                    </a>
+                </div>
+
+            <div class="col-12 col-md-5 my-2 my-md-0 mx-md-auto">
+                <form class="w-100" onsubmit="return false;">
+                    <input id="searchInput" class="form-control rounded-pill border-2" type="search" placeholder="Menüde ara..." aria-label="Search">
+                </form>
+            </div>
+
+            <ul class="nav align-items-center justify-content-end">
+                 <li class="nav-item text-center me-2">
+                    <a href="https://open.spotify.com/playlist/0JW3iVBY8jp5JWo6XSx6u2" target="_blank" class="nav-link p-1 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"></path>
+                        </svg>
+                        <div style="font-size: 10px; font-weight: bold;">Spotify</div>
+                    </a>
+                </li>
+                <li class="nav-item text-center me-3">
+                    <a href="index.html" class="nav-link p-1 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16"><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/></svg>
+                        <div style="font-size: 10px; font-weight: bold;">Anasayfa</div>
+                    </a>
+                </li>
+                <li class="nav-item text-center position-relative">
+                    <a href="sepet.html" class="nav-link p-1 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-basket3-fill" viewBox="0 0 16 16"><path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z"/></svg>
+                        <span id="sepetAdet" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                        <div style="font-size: 10px; font-weight: bold;">Sepet</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="container my-5">
+    <h2 id="tatlı" class="menu-section-title">TATLI ÇEŞİTLERİ</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 menu-container">
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/sufle.png" class="card-img-top" alt="Sufle">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Sufle</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Sufle', 180, 'images/sufle.png')" class="btn btn-success w-100 rounded-pill">Sepete ekle</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/white brownie.png" class="card-img-top" alt="Brownie">
+                <div class="card-body text-center">
+                    <h5 class="card-title">White Brownie</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('White Brownie', 180, 'images/white-brownie.jpg')" class="btn btn-success w-100 rounded-pill">Sepete ekle</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/moçi.png" class="card-img-top" alt="Moçi">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Moçi</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Moçi', 180, 'images/moci.jpg')" class="btn btn-success w-100 rounded-pill">Sepete ekle</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/makaron.png" class="card-img-top" alt="Macaron">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Macaron</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Macaron', 180, 'images/macaron.jpg')" class="btn btn-success w-100 rounded-pill">Sepete ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="icecekler" class="menu-section-title">İÇECEK ÇEŞİTLERİ</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 menu-container">
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/toffee nut latte.png" class="card-img-top" alt="Toffee Nut Latte">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Toffee Nut Latte</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Toffee Nut Latte', 180, 'images/latte.jpg')" class="btn btn-success w-100 rounded-pill">Sepete ekle</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/mocha.png" class="card-img-top" alt="Mocha">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Mocha</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Mocha', 180, 'images/mocha.jpg')" class="btn btn-success w-100 rounded-pill">Sepete ekle</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/toffee nut latte.png" class="card-img-top" alt="Toffee nut latte">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Toffee nut latte</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Mocha', 180, 'images/mocha.jpg')" class="btn btn-success w-100 rounded-pill">Sepete ekle</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/sütlçileklibubletea.png" class="card-img-top" alt="Sütlü meyveli bubletea">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Mocha</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Mocha', 180, 'images/mocha.jpg')" class="btn btn-success w-100 rounded-pill">Sepete ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- FİLTRELEME FONKSİYONU ---
+    function filtreUygula(kelime) {
+        const query = kelime.toLowerCase();
+        const items = document.querySelectorAll('.menu-item');
+
+        items.forEach(item => {
+            const title = item.querySelector('.card-title').innerText.toLowerCase();
+            item.style.display = title.includes(query) ? "block" : "none";
+        });
+    }
+
+    // Arama kutusuna yazıldığında çalışır
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function() {
+        filtreUygula(this.value);
+    });
+
+    // --- ANA SAYFADAN GELEN ARAMAYI YAKALAMA ---
+    window.addEventListener('load', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const aranan = urlParams.get('ara'); 
+        
+        if (aranan) {
+            searchInput.value = aranan; // Kutuyu doldur
+            filtreUygula(aranan);      // Filtreyi çalıştır
+        }
+        badgeGuncelle();
+    });
+
+    // --- SEPET FONKSİYONLARI ---
+    function sepeteEkle(ad, fiyat, resim) {
+        let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        sepet.push({ ad: ad, fiyat: fiyat, resim: resim });
+        localStorage.setItem('sepet', JSON.stringify(sepet));
+        badgeGuncelle();
+        alert(ad + " sepete eklendi!");
+    }
+
+    function badgeGuncelle() {
+        let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        const badge = document.getElementById('sepetAdet');
+        if(badge) badge.innerText = sepet.length;
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

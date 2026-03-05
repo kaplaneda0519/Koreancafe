@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Koreancafe | 장바구니</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="still.css">
+    
+    <style>
+        body { background-color: #fdf8f2; }
+
+        .header-bg {
+            background-image: url('arkaplanchange.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo-img {
+            width: 80px; height: 80px;
+            border-radius: 50%; object-fit: cover;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-img { 
+            width: 80px; 
+            height: 80px; 
+            object-fit: cover; 
+            border-radius: 12px; 
+            margin-right: 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .empty-cart { text-align: center; padding: 50px; }
+        
+        .checkout-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-bg border-bottom shadow-sm mb-5">
+    <div class="container py-3">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+            <a href="koreindex.html" class="d-flex align-items-center text-decoration-none">
+                <img src="images/kafelogo.png" alt="Logo" class="logo-img shadow">
+            </a>
+
+            <div class="ms-2 d-flex">
+                <a href="index.html" title="터키어">
+                    <img src="https://flagcdn.com/w40/tr.png" alt="터키어" class="flag-icon">
+                </a>
+                <a href="koreindex.html" title="한국어">
+                    <img src="https://flagcdn.com/w40/kr.png" alt="한국어" class="flag-icon">
+                </a>
+            </div>
+
+            <h2 class="text-dark m-0 fw-bold" style="font-family: sans-serif;">장바구니</h2>
+
+            <ul class="nav align-items-center justify-content-end">
+                <li class="nav-item text-center me-2">
+                    <a href="https://open.spotify.com/playlist/0JW3iVBY8jp5JWo6XSx6u2" target="_blank" class="nav-link p-1 text-dark">
+                        <div style="font-size: 10px; font-weight: bold;">Spotify</div>
+                    </a>
+                </li>
+
+                <li class="nav-item text-center me-3">
+                    <a href="index.html" class="nav-link p-1 text-dark">
+                        <div style="font-size: 10px; font-weight: bold;">홈</div>
+                    </a>
+                </li>
+
+                <li class="nav-item text-center">
+                    <a href="menu.html" class="nav-link p-1 text-dark">
+                        <div style="font-size: 10px; font-weight: bold;">메뉴</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div id="sepetListesi" class="bg-white shadow-sm rounded-4 p-4 border-0"></div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="checkout-box shadow-sm text-center">
+                <h4 class="mb-4 fw-bold">주문 요약</h4>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span>소계:</span>
+                    <span id="araToplam" class="fw-bold">0₺</span>
+                </div>
+
+                <div class="d-flex justify-content-between mb-3 text-success">
+                    <span>배송:</span>
+                    <span class="fw-bold">무료</span>
+                </div>
+
+                <hr>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <span class="h5">총합:</span>
+                    <h2 id="toplamFiyat" class="text-success fw-bold m-0">0₺</h2>
+                </div>
+
+                <button onclick="siparisOnayla()" class="btn btn-success btn-lg w-100 py-3 rounded-pill mb-3 shadow-sm">
+                    결제 완료
+                </button>
+
+                <button onclick="sepetiTemizle()" class="btn btn-outline-danger btn-sm w-100 rounded-pill border-0">
+                    장바구니 비우기
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sepetiYukle() {
+        const sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        const liste = document.getElementById('sepetListesi');
+        const toplamEtiket = document.getElementById('toplamFiyat');
+        const araToplamEtiket = document.getElementById('araToplam');
+        let toplam = 0;
+
+        if (sepet.length === 0) {
+            liste.innerHTML = `
+                <div class="empty-cart">
+                    <img src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png" width="100" class="mb-3 opacity-50">
+                    <h5>장바구니가 비어 있습니다.</h5>
+                    <p class="text-muted">한국의 맛을 탐험해 보시겠어요?</p>
+                    <a href="korecemenü.html" class="btn btn-dark rounded-pill px-4 mt-2">메뉴 보기</a>
+                </div>`;
+            toplamEtiket.innerText = "0₺";
+            araToplamEtiket.innerText = "0₺";
+            return;
+        }
+
+        liste.innerHTML = "";
+        sepet.forEach((urun, index) => {
+            toplam += urun.fiyat;
+            liste.innerHTML += `
+                <div class="cart-item">
+                    <div class="d-flex align-items-center">
+                        <img src="${urun.resim}" alt="${urun.ad}" class="cart-img" onerror="this.src='https://via.placeholder.com/80?text=K-Food'">
+                        <div>
+                            <h5 class="mb-1 fw-bold">${urun.ad}</h5>
+                            <span class="badge bg-light text-dark border">${urun.fiyat}₺</span>
+                        </div>
+                    </div>
+                    <button onclick="urunSil(${index})" class="btn btn-link text-danger text-decoration-none fw-bold">삭제</button>
+                </div>
+            `;
+        });
+        
+        toplamEtiket.innerText = toplam + "₺";
+        araToplamEtiket.innerText = toplam + "₺";
+    }
+
+    function urunSil(index) {
+        let sepet = JSON.parse(localStorage.getItem('sepet'));
+        sepet.splice(index, 1);
+        localStorage.setItem('sepet', JSON.stringify(sepet));
+        sepetiYukle();
+    }
+
+    function sepetiTemizle() {
+        if(confirm("장바구니를 모두 비우시겠습니까?")) {
+            localStorage.removeItem('sepet');
+            sepetiYukle();
+        }
+    }
+
+    function siparisOnayla() {
+        alert("주문이 완료되었습니다! 한국의 맛을 준비하고 있습니다...");
+        localStorage.removeItem('sepet');
+        window.location.href = "koreindex.html";
+    }
+
+    window.onload = sepetiYukle;
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

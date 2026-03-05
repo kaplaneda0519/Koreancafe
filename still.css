@@ -1,0 +1,119 @@
+/* Genel Sayfa Ayarları */
+body {
+    background-color: #fcf8f3; /* Yumuşak bir krem tonu */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Header Tasarımı */
+.header-bg {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('arkaplanchange.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 10px 0;
+}
+
+.logo-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #ded0bd;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Navigasyon İkonları */
+.nav-link svg {
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover svg {
+    color: #8b5e3c; /* Kahve tonu */
+    transform: translateY(-3px);
+}
+
+/* Slider (Atlıkarınca) Ayarları */
+.carousel-item img {
+    height: 500px;
+    object-fit: cover; /* Resimlerin bozulmadan kutuyu kaplamasını sağlar */
+}
+
+/* Tanıtım Alanı (Bej Kutu) */
+.hero-section {
+    background-color: #ded0bd; /* Görseldeki bej tonu */
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px #8b5e3c; /* Retro bir gölge efekti */
+    margin-top: 20px;
+}
+
+.hero-section h1 {
+    color: #2c2c2c;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.hero-section p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Ürün Kartları (İçecekler & Tatlılar) */
+.marketing img {
+    border: 5px solid #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+
+.marketing img:hover {
+    border-color: #ded0bd;
+    transform: translateY(-10px);
+}
+
+.btn-secondary {
+    background-color: #8b5e3c;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5d3e29;
+}
+
+/* Featurette (Alt Tanıtım) Görselleri */
+.featurette-image {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Footer Sosyal Medya */
+footer {
+    padding-top: 50px;
+}
+
+footer .bi {
+    width: 20px;
+    height: 20px;
+    color: #555;
+}
+
+footer .ms-3 a:hover svg {
+    color: #8b5e3c;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+    .hero-section {
+        padding: 25px;
+        box-shadow: 5px 5px 0px #8b5e3c;
+    }
+}

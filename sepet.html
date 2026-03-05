@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Koreancafe | Sepetim</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="still.css">
+    
+    <style>
+        /* Ana sayfadaki genel arka plan rengi */
+        body {
+            background-color: #fdf8f2;
+        }
+
+        /* Diğer sayfalarla aynı Header tasarımı */
+        .header-bg {
+            background-image: url('arkaplanchange.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo-img {
+            width: 80px; height: 80px;
+            border-radius: 50%; object-fit: cover;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .cart-img { 
+            width: 80px; 
+            height: 80px; 
+            object-fit: cover; 
+            border-radius: 12px; 
+            margin-right: 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .empty-cart { text-align: center; padding: 50px; }
+        
+        .checkout-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-bg border-bottom shadow-sm mb-5">
+    <div class="container py-3">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+            <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                <img src="images/kafelogo.png" alt="Logo" class="logo-img shadow">
+            </a>
+            <div class="ms-2 d-flex">
+                    <a href="index.html" title="Türkçe">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="Türkçe" class="flag-icon">
+                    </a>
+                    <a href="koreindex.html" title="Korece">
+                        <img src="https://flagcdn.com/w40/kr.png" alt="Korece" class="flag-icon">
+                    </a>
+                </div>
+
+            <h2 class="text-dark m-0 fw-bold" style="font-family: sans-serif;">SEPETİM</h2>
+
+            <ul class="nav align-items-center justify-content-end">
+                 <li class="nav-item text-center me-2">
+                    <a href="https://open.spotify.com/playlist/0JW3iVBY8jp5JWo6XSx6u2" target="_blank" class="nav-link p-1 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-spotify" viewBox="0 0 16 16">
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.669 11.538a.5.5 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686m.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858m.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288"></path>
+                        </svg>
+                        <div style="font-size: 10px; font-weight: bold;">Spotify</div>
+                    </a>
+                </li>
+                <li class="nav-item text-center me-3">
+                    <a href="index.html" class="nav-link p-1 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16"><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/></svg>
+                        <div style="font-size: 10px; font-weight: bold;">Anasayfa</div>
+                    </a>
+                </li>
+                <li class="nav-item text-center">
+                    <a href="menu.html" class="nav-link p-1 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cup-hot-fill" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6zM13 12.5a2 2 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5"></path></svg>
+                        <div style="font-size: 10px; font-weight: bold;">Menü</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div id="sepetListesi" class="bg-white shadow-sm rounded-4 p-4 border-0">
+                </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="checkout-box shadow-sm text-center">
+                <h4 class="mb-4 fw-bold">Sipariş Özeti</h4>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Ara Toplam:</span>
+                    <span id="araToplam" class="fw-bold">0₺</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3 text-success">
+                    <span>Teslimat:</span>
+                    <span class="fw-bold">Ücretsiz</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <span class="h5">Toplam:</span>
+                    <h2 id="toplamFiyat" class="text-success fw-bold m-0">0₺</h2>
+                </div>
+                <button onclick="siparisOnayla()" class="btn btn-success btn-lg w-100 py-3 rounded-pill mb-3 shadow-sm">Ödemeyi Tamamla</button>
+                <button onclick="sepetiTemizle()" class="btn btn-outline-danger btn-sm w-100 rounded-pill border-0">Sepeti Boşalt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sepetiYukle() {
+        const sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        const liste = document.getElementById('sepetListesi');
+        const toplamEtiket = document.getElementById('toplamFiyat');
+        const araToplamEtiket = document.getElementById('araToplam');
+        let toplam = 0;
+
+        if (sepet.length === 0) {
+            liste.innerHTML = `
+                <div class="empty-cart">
+                    <img src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png" width="100" class="mb-3 opacity-50">
+                    <h5>Sepetiniz şu an boş.</h5>
+                    <p class="text-muted">Güney Kore lezzetlerini keşfetmeye ne dersiniz?</p>
+                    <a href="menu.html" class="btn btn-dark rounded-pill px-4 mt-2">Menüye Göz At</a>
+                </div>`;
+            toplamEtiket.innerText = "0₺";
+            araToplamEtiket.innerText = "0₺";
+            return;
+        }
+
+        liste.innerHTML = "";
+        sepet.forEach((urun, index) => {
+            toplam += urun.fiyat;
+            liste.innerHTML += `
+                <div class="cart-item">
+                    <div class="d-flex align-items-center">
+                        <img src="${urun.resim}" alt="${urun.ad}" class="cart-img" onerror="this.src='https://via.placeholder.com/80?text=K-Food'">
+                        <div>
+                            <h5 class="mb-1 fw-bold">${urun.ad}</h5>
+                            <span class="badge bg-light text-dark border">${urun.fiyat}₺</span>
+                        </div>
+                    </div>
+                    <button onclick="urunSil(${index})" class="btn btn-link text-danger text-decoration-none fw-bold">Kaldır</button>
+                </div>
+            `;
+        });
+        
+        toplamEtiket.innerText = toplam + "₺";
+        araToplamEtiket.innerText = toplam + "₺";
+    }
+
+    function urunSil(index) {
+        let sepet = JSON.parse(localStorage.getItem('sepet'));
+        sepet.splice(index, 1);
+        localStorage.setItem('sepet', JSON.stringify(sepet));
+        sepetiYukle();
+    }
+
+    function sepetiTemizle() {
+        if(confirm("Tüm sepeti boşaltmak istiyor musunuz?")) {
+            localStorage.removeItem('sepet');
+            sepetiYukle();
+        }
+    }
+
+    function siparisOnayla() {
+        alert("Siparişiniz alındı! Kore lezzetleri hazırlanmaya başlıyor...");
+        localStorage.removeItem('sepet');
+        window.location.href = "index.html";
+    }
+
+    window.onload = sepetiYukle;
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

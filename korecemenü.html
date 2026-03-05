@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Koreancafe | 메뉴 (Menü)</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="still.css">
+    
+    <style>
+        body { background-color: #fdf8f2; }
+        .header-bg {
+            background-image: url('arkaplanchange.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .logo-img {
+            width: 80px; height: 80px;
+            border-radius: 50%; object-fit: cover;
+        }
+        .flag-icon {
+            width: 25px; height: auto;
+            margin-left: 8px; transition: 0.2s;
+        }
+        .flag-icon:hover { transform: scale(1.2); }
+        .card {
+            transition: transform 0.3s; border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 20px;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card-img-top { height: 200px; object-fit: cover; }
+        .menu-section-title {
+            border-left: 5px solid #ded0bd; padding-left: 15px;
+            margin: 40px 0 25px 0; font-weight: bold; color: #5a4a3a;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-bg border-bottom shadow-sm">
+    <div class="container py-3">
+        <div class="d-flex flex-wrap align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <a href="koreindex.html" class="d-flex align-items-center text-decoration-none">
+                    <img src="images/kafelogo.png" alt="로고" class="logo-img shadow">
+                </a>
+                <div class="ms-2 d-flex">
+                    <a href="index.html" title="Türkçe"><img src="https://flagcdn.com/w40/tr.png" class="flag-icon"></a>
+                    <a href="koreindex.html" title="Korece"><img src="https://flagcdn.com/w40/kr.png" class="flag-icon"></a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-5 my-2 my-md-0 mx-md-auto">
+                <form class="w-100" onsubmit="return false;">
+                    <input id="searchInput" class="form-control rounded-pill border-2" type="search" placeholder="메뉴에서 검색..." aria-label="Search">
+                </form>
+            </div>
+
+            <ul class="nav align-items-center justify-content-end">
+                <li class="nav-item text-center me-3">
+                    <a href="koreindex.html" class="nav-link p-1 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16"><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/></svg>
+                        <div style="font-size: 10px; font-weight: bold;">홈</div>
+                    </a>
+                </li>
+                <li class="nav-item text-center position-relative">
+                    <a href="korecesepet.html" class="nav-link p-1 text-dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-basket3-fill" viewBox="0 0 16 16"><path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z"/></svg>
+                        <span id="sepetAdet" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                        <div style="font-size: 10px; font-weight: bold;">장바구니</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="container my-5">
+    <h2 id="디저트" class="menu-section-title">디저트 메뉴</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 menu-container">
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/sufle.png" class="card-img-top" alt="Sufle">
+                <div class="card-body text-center">
+                    <h5 class="card-title">수플레 (Sufle)</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Sufle', 180, 'images/sufle.png')" class="btn btn-success w-100 rounded-pill">장바구니 담기</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/white brownie.png" class="card-img-top" alt="Brownie">
+                <div class="card-body text-center">
+                    <h5 class="card-title">화이트 브라우니 (White Brownie)</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('White Brownie', 180, 'images/white-brownie.jpg')" class="btn btn-success w-100 rounded-pill">장바구니 담기</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/moçi.png" class="card-img-top" alt="Moçi">
+                <div class="card-body text-center">
+                    <h5 class="card-title">모찌 (Mochi)</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Moçi', 180, 'images/moci.jpg')" class="btn btn-success w-100 rounded-pill">장바구니 담기</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/makaron.png" class="card-img-top" alt="Macaron">
+                <div class="card-body text-center">
+                    <h5 class="card-title">마카롱 (Macaron)</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Macaron', 180, 'images/macaron.jpg')" class="btn btn-success w-100 rounded-pill">장바구니 담기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="음료수" class="menu-section-title">음료수 메뉴</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 menu-container">
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/toffee nut latte.png" class="card-img-top" alt="Toffee Nut Latte">
+                <div class="card-body text-center">
+                    <h5 class="card-title">토피넛 라떼 (Toffee Nut Latte)</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Toffee Nut Latte', 180, 'images/latte.jpg')" class="btn btn-success w-100 rounded-pill">장바구니 담기</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/mocha.png" class="card-img-top" alt="Mocha">
+                <div class="card-body text-center">
+                    <h5 class="card-title">모카 (Mocha)</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Mocha', 180, 'images/mocha.jpg')" class="btn btn-success w-100 rounded-pill">장바구니 담기</button>
+                </div>
+            </div>
+        </div>
+        <div class="col menu-item">
+            <div class="card h-100">
+                <img src="images/sütlçileklibubletea.png" class="card-img-top" alt="Strawberry Bubble Tea">
+                <div class="card-body text-center">
+                    <h5 class="card-title">딸기 버블티 (Strawberry Bubble Tea)</h5>
+                    <p class="card-text fw-bold text-muted">180₺</p>
+                    <button onclick="sepeteEkle('Bubble Tea', 180, 'images/bubbletea.jpg')" class="btn btn-success w-100 rounded-pill">장바구니 담기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Arama fonksiyonu (Hem Türkçe hem Korece başlıkta arama yapabilir)
+    function filtreUygula(kelime) {
+        const query = kelime.toLowerCase().trim();
+        const items = document.querySelectorAll('.menu-item');
+        items.forEach(item => {
+            const title = item.querySelector('.card-title').innerText.toLowerCase();
+            item.style.display = title.includes(query) ? "block" : "none";
+        });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+        filtreUygula(this.value);
+    });
+
+    // Sepete ekleme fonksiyonu
+    function sepeteEkle(koreceIsim, fiyat, resim) {
+        let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        
+        // Sadece butondan gelen Korece ismi kaydediyoruz
+        sepet.push({ 
+            ad: koreceIsim, 
+            fiyat: fiyat, 
+            resim: resim 
+        });
+        
+        localStorage.setItem('sepet', JSON.stringify(sepet));
+        badgeGuncelle();
+        
+        // Uyarı mesajı
+        alert(koreceIsim + " 장바구니에 추가되었습니다!"); 
+    }
+
+    function badgeGuncelle() {
+        let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        const badge = document.getElementById('sepetAdet');
+        if(badge) {
+            badge.innerText = sepet.length;
+            badge.style.display = sepet.length > 0 ? "block" : "none";
+        }
+    }
+
+    window.onload = function() {
+        badgeGuncelle();
+        // URL'den gelen arama varsa uygula
+        const urlParams = new URLSearchParams(window.location.search);
+        const ara = urlParams.get('ara');
+        if(ara) {
+            document.getElementById('searchInput').value = ara;
+            filtreUygula(ara);
+        }
+    };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
